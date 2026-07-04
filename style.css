@@ -44,19 +44,20 @@ body {
     width: 90vw;
     max-width: 800px;
     aspect-ratio: 3/2;
-    padding: 20px 20px 0 20px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     text-align: center;
+
     background-image: url("window.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 12px;
-    gap: 1px;
-    padding-top: 180px;
+
+    gap: 10px;
 
     transform: scale(1.2);
     opacity: 0;
@@ -81,8 +82,9 @@ p {
 
 .dog {
     width: 250px;
-    margin: 10px 0;
-    transition: width 0.4s ease;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 .letter-window.final .dog {
