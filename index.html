@@ -6,7 +6,6 @@
     <title>My Website</title>
     <link rel="stylesheet" href="style.css">
 
-    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,8 +21,8 @@
     </div>
 
     <!-- Letter Screen -->
-    <div id="letter-container" 
-        ><div class="letter-window">
+    <div id="letter-container">
+        <div class="letter-window">
             <h1>Hi there!</h1>
 
             <img src="dog_heart.gif" class="dog" id="letter-dog" />
@@ -31,9 +30,34 @@
             <div class="buttons" id="letter-buttons">
                 <img src="yes.png" class="btn yes-btn" alt="Yes" />
 
-                <div class ="no wrapper">
+                <div class="no-wrapper">
                     <img src="no.png" class="btn no-btn" alt="No" />
                 </div>
+            </div>
+
+            <!-- Step 1: Activity -->
+            <div class="options" id="activity-container" style="display:none">
+                <h2>What should we do?</h2>
+                <div class="option-buttons">
+                    <button class="option-btn" data-choice="Coffee ☕">Coffee</button>
+                    <button class="option-btn" data-choice="Movie 🎬">Movie</button>
+                    <button class="option-btn" data-choice="Dinner 🍝">Dinner</button>
+                    <button class="option-btn" data-choice="Picnic 🧺">Picnic</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Date -->
+            <div class="options" id="date-container" style="display:none">
+                <h2>Pick a date</h2>
+                <input type="date" id="date-input" class="picker-input" />
+                <button class="option-btn" id="date-next">Next</button>
+            </div>
+
+            <!-- Step 3: Time -->
+            <div class="options" id="time-container" style="display:none">
+                <h2>Pick a time</h2>
+                <input type="time" id="time-input" class="picker-input" />
+                <button class="option-btn" id="time-next">Next</button>
             </div>
 
             <p id="final-text" class="final-text" style="display:none">
@@ -41,6 +65,6 @@
             </p>
         </div>
     </div>
-     <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

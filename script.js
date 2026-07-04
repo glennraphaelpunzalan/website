@@ -8,6 +8,18 @@ const catImg = document.getElementById("letter-dog");
 const buttons = document.getElementById("letter-buttons");
 const finalText = document.getElementById("final-text");
 
+const activityContainer = document.getElementById("activity-container");
+const dateContainer = document.getElementById("date-container");
+const timeContainer = document.getElementById("time-container");
+const dateInput = document.getElementById("date-input");
+const timeInput = document.getElementById("time-input");
+const dateNext = document.getElementById("date-next");
+const timeNext = document.getElementById("time-next");
+
+let chosenActivity = "";
+let chosenDate = "";
+let chosenTime = "";
+
 // Click Envelope
 envelope.addEventListener("click", () => {
     envelope.style.display = "none";
@@ -30,14 +42,41 @@ noBtn.addEventListener("mouseover", () => {
     noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
 });
 
-// YES clicked
+// YES clicked -> show activity step
 yesBtn.addEventListener("click", () => {
     document.querySelector("h1").textContent = "Yippeeee!";
 
     catImg.src = "dog_dancing.gif";
 
+    buttons.style.display = "none";
+    activityContainer.style.display = "flex";
+});
+
+// Activity chosen -> show date step
+document.querySelectorAll(".option-btn[data-choice]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+        chosenActivity = btn.dataset.choice;
+        activityContainer.style.display = "none";
+        dateContainer.style.display = "flex";
+    });
+});
+
+// Date chosen -> show time step
+dateNext.addEventListener("click", () => {
+    if (!dateInput.value) return;
+    chosenDate = dateInput.value;
+    dateContainer.style.display = "none";
+    timeContainer.style.display = "flex";
+});
+
+// Time chosen -> show final thank-you text
+timeNext.addEventListener("click", () => {
+    if (!timeInput.value) return;
+    chosenTime = timeInput.value;
+    timeContainer.style.display = "none";
+
     document.querySelector(".letter-window").classList.add("final");
 
-    buttons.style.display = "none";
+    finalText.innerHTML = `<strong>Yay! ${chosenActivity} on ${chosenDate} at ${chosenTime} 💕</strong>`;
     finalText.style.display = "block";
 });

@@ -11,12 +11,12 @@ body {
 /* Envelope Screen */
 #envelope-container {
     text-align: center;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 @keyframes pulse {
     0% {
-        transform:scale(1);
+        transform: scale(1);
     }
     50% {
         transform: scale(1.1);
@@ -26,21 +26,21 @@ body {
     }
 }
 
-#envelope{
+#envelope {
     width: 200px;
     animation: pulse 1.5s infinite;
     cursor: pointer;
 }
 
-#letter-container{
+#letter-container {
     display: none;
-    position:fixed;
+    position: fixed;
     inset: 0;
     justify-content: center;
     align-items: center;
 }
 
-.letter-window{
+.letter-window {
     width: 90vw;
     max-width: 800px;
     aspect-ratio: 3/2;
@@ -71,7 +71,7 @@ body {
 
 h1 {
     font-size: 30px;
-    margin:0;
+    margin: 0;
 }
 
 p {
@@ -79,7 +79,6 @@ p {
 }
 
 /* dog */
-
 .dog {
     width: 250px;
     height: auto;
@@ -99,8 +98,8 @@ p {
     position: relative;
 }
 
-.no-wrapper{
-    position:relative;
+.no-wrapper {
+    position: relative;
 }
 
 .btn {
@@ -111,9 +110,9 @@ p {
 
 .yes-btn,
 .no-btn {
-width: 120px;
-height: auto;
-display: inline-block;
+    width: 120px;
+    height: auto;
+    display: inline-block;
 }
 
 .yes-btn {
@@ -130,7 +129,7 @@ display: inline-block;
     cursor: default;
 }
 
-.final-text{
+.final-text {
     font-size: 22px;
     line-height: 1.4;
     text-align: center;
@@ -138,4 +137,49 @@ display: inline-block;
     padding: 10px 20px;
     background-color: rgba(255,240,240,0.5);
     border-radius: 12px;
+}
+
+/* Options steps (activity / date / time) */
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.options h2 {
+    font-size: 22px;
+    margin: 0;
+}
+
+.option-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.option-btn {
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 16px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffb6c1;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.option-btn:hover {
+    background-color: #ff8fa3;
+    transform: scale(1.08);
+}
+
+.picker-input {
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 18px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff0f3;
 }
