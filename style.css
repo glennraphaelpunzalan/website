@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     height: 100vh;
@@ -15,15 +19,9 @@ body {
 }
 
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
 
 #envelope {
@@ -32,24 +30,56 @@ body {
     cursor: pointer;
 }
 
+/* Letter Screen container - stacks gif above window, everything centered */
 #letter-container {
     display: none;
     position: fixed;
     inset: 0;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 16px;
 }
 
+/* Small gif thumbnail above the window */
+.photo-frame {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+}
+
+.photo-frame.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.photo-frame .dog {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* The window itself */
 .letter-window {
     width: 90vw;
     max-width: 800px;
     aspect-ratio: 3/2;
 
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 
     text-align: center;
 
@@ -58,11 +88,12 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 
-    gap: 10px;
-
     transform: scale(1.2);
     opacity: 0;
     transition: transform 0.6s ease, opacity 0.6s ease;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
 }
 
 .letter-window.open {
@@ -70,118 +101,54 @@ body {
     opacity: 1;
 }
 
-h1 {
+.letter-window h1 {
     font-size: 30px;
     margin: 0;
 }
 
-p {
-    font-size: 40px;
-}
-
-/* Photo frame — matches the checkered slot in window.png */
-.photo-frame {
-    position: absolute;
-    top: 30%;
-    bottom: 12%;
-    left: 8%;
-    right: 8%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 0;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
-.photo-frame.visible {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.dog {
-    width: 250px;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.letter-window.final .dog {
-    width: 180px;
-}
-
-/* keep interactive content above the photo frame */
-.letter-window h1,
-.letter-window .buttons,
-.letter-window .options,
-.letter-window .final-text {
-    position: relative;
-    z-index: 1;
-}
-
-.letter-window h1 {
-    margin-top: 8%;
-    margin-bottom: 0;
-}
-
-.letter-window .buttons,
-.letter-window .options {
-    margin-bottom: 5%;
-}
-
-/* buttons */
+/* buttons — inside the window */
 .buttons {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 30px;
-}
-
-.no-wrapper {
-    position: relative;
 }
 
 .btn {
     width: 120px;
+    height: auto;
     cursor: pointer;
     user-select: none;
 }
 
-.yes-btn,
-.no-btn {
-    width: 120px;
-    height: auto;
-    display: inline-block;
-}
-
 .yes-btn {
-    transform-origin: center center;
     transition: transform 0.3s ease;
 }
 
 .no-btn {
     transition: transform 0.15s ease;
     cursor: default;
+    position: relative;
 }
 
 .final-text {
-     font-size: 22px;
+    font-size: 22px;
     line-height: 1.4;
     text-align: center;
     display: inline-block;
     padding: 10px 20px;
     background-color: rgba(255,240,240,0.5);
     border-radius: 12px;
-    margin-top: auto;   /* pushes it to the bottom of the flex column */
-    margin-bottom: 5%;
 }
 
-/* Options steps (activity / date / time) */
+/* Options steps (activity / date / time) — centered inside the window */
 .options {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 15px;
+    width: 100%;
 }
 
 .options h2 {
