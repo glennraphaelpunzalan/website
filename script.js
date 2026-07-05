@@ -5,6 +5,7 @@ const noBtn = document.querySelector(".no-btn");
 const yesBtn = document.querySelector(".yes-btn");
 
 const catImg = document.getElementById("letter-dog");
+const photoFrame = document.querySelector(".photo-frame");
 const buttons = document.getElementById("letter-buttons");
 const finalText = document.getElementById("final-text");
 
@@ -42,13 +43,12 @@ noBtn.addEventListener("mouseover", () => {
     noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
 });
 
-// YES clicked -> show activity step
+// YES clicked -> hide dog, show activity step
 yesBtn.addEventListener("click", () => {
     document.querySelector("h1").textContent = "Yippeeee!";
 
-    catImg.src = "dog_dancing.gif";
-
     buttons.style.display = "none";
+    photoFrame.classList.remove("visible");
     activityContainer.style.display = "flex";
 });
 
@@ -69,11 +69,14 @@ dateNext.addEventListener("click", () => {
     timeContainer.style.display = "flex";
 });
 
-// Time chosen -> show final thank-you text
+// Time chosen -> show final message with dancing dog
 timeNext.addEventListener("click", () => {
     if (!timeInput.value) return;
     chosenTime = timeInput.value;
     timeContainer.style.display = "none";
+
+    catImg.src = "dog_dancing.gif";
+    photoFrame.classList.add("visible");
 
     document.querySelector(".letter-window").classList.add("final");
 
