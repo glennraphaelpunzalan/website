@@ -121,7 +121,8 @@ p {
 }
 
 .letter-window h1 {
-    margin-top: 5%;
+    margin-top: 8%;
+    margin-bottom: 0;
 }
 
 .letter-window .buttons,
@@ -164,13 +165,15 @@ p {
 }
 
 .final-text {
-    font-size: 22px;
+     font-size: 22px;
     line-height: 1.4;
     text-align: center;
     display: inline-block;
     padding: 10px 20px;
     background-color: rgba(255,240,240,0.5);
     border-radius: 12px;
+    margin-top: auto;   /* pushes it to the bottom of the flex column */
+    margin-bottom: 5%;
 }
 
 /* Options steps (activity / date / time) */
