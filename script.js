@@ -45,7 +45,7 @@ noBtn.addEventListener("mouseover", () => {
 
 // YES clicked -> hide dog, show activity step
 yesBtn.addEventListener("click", () => {
-    document.querySelector("h1").textContent = "Yayyy!!!";
+    document.querySelector("h1").textContent = "Yayy!!!";
 
     buttons.style.display = "none";
     photoFrame.classList.remove("visible");
